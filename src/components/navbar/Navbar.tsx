@@ -18,31 +18,31 @@ export const Navbar = () => {
       </div>
       <ul className={menuOpen ? "open" : ""}>
         <li>
-          <NavLink to="/about">Internacional</NavLink>
+          <NavLink to="/internacional">Internacional</NavLink>
         </li>
         <li>
-          <NavLink to="/services">Cultura</NavLink>
+          <NavLink to="/cultura">Cultura</NavLink>
         </li>
         <li>
-          <NavLink to="/contact">Deporte</NavLink>
+          <NavLink to="/deporte">Deporte</NavLink>
         </li>
         <li>
-          <NavLink to="/about">Economia</NavLink>
+          <NavLink to="/economia">Economia</NavLink>
         </li>
         <li>
-          <NavLink to="/services">Gente</NavLink>
+          <NavLink to="/gente">Gente</NavLink>
         </li>
         <li>
-          <NavLink to="/contact">Politica</NavLink>
+          <NavLink to="/politica">Politica</NavLink>
         </li>
         <li>
-          <NavLink to="/about">Sociedad</NavLink>
+          <NavLink to="/sociedad">Sociedad</NavLink>
         </li>
         <li>
-          <NavLink to="/services">Tecnologia</NavLink>
+          <NavLink to="/tecnologia">Tecnologia</NavLink>
         </li>
         <li>
-          <NavLink to="/contact">Turismo</NavLink>
+          <NavLink to="/turismo">Turismo</NavLink>
         </li>
       </ul>
     </nav>

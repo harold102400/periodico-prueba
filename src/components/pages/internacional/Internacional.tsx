@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from 'react';
+import './Internacional.css'
 
 const baseURL = "https://apitest.rdedigital.com/api/v1/posts";
 interface News {
@@ -14,7 +15,7 @@ interface News {
   category: string;
 }
 
-const Economia = () => {
+const Internacional = () => {
   const [categoryNews, setCategoryNews] = useState<News[]>([]);
 
   useEffect(() => {
@@ -35,21 +36,21 @@ const Economia = () => {
       });
   }, []); 
 
-  const filteredNews = categoryNews.find(news => news.category === "Economía");
+  const filteredNews = categoryNews.find(news => news.category === "Internacional");
 console.log(filteredNews)
   return (
-    <div className="news-container">
+    <div className="one-news-container">
       {filteredNews ? (
-        <div key={filteredNews.id} className="card-container">
+        <div key={filteredNews.id} className="news-card-container">
           {filteredNews.media && (
-            <img src={filteredNews.media} className="ilustration" />
+            <img src={filteredNews.media} className="news-media" />
           )}
-          <div className="news-info-container">
+          <div className="news-sub-container">
             {filteredNews.title && (
-              <h1 className="news-title">{filteredNews.title.rendered}</h1>
+              <h1 className="one-news-title">{filteredNews.title.rendered}</h1>
             )}
             {filteredNews.content && (
-              <p className="news-content">{filteredNews.content.rendered}</p>
+              <p className="one-news-content">{filteredNews.content.rendered}</p>
             )}
           </div>
         </div>
@@ -60,4 +61,4 @@ console.log(filteredNews)
   );
 }
 
-export default Economia;
+export default Internacional;
