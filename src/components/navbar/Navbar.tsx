@@ -9,7 +9,7 @@ export const Navbar = () => {
   return (
     <nav>
       <Link to="/" className="title">
-        Website
+        Portada
       </Link>
       <div className="menu" onClick={() => setMenuOpen(!menuOpen)}>
         <span></span>
@@ -18,13 +18,31 @@ export const Navbar = () => {
       </div>
       <ul className={menuOpen ? "open" : ""}>
         <li>
-          <NavLink to="/about">About</NavLink>
+          <NavLink to="/about">Internacional</NavLink>
         </li>
         <li>
-          <NavLink to="/services">Services</NavLink>
+          <NavLink to="/services">Cultura</NavLink>
         </li>
         <li>
-          <NavLink to="/contact">Contact</NavLink>
+          <NavLink to="/contact">Deporte</NavLink>
+        </li>
+        <li>
+          <NavLink to="/about">Economia</NavLink>
+        </li>
+        <li>
+          <NavLink to="/services">Gente</NavLink>
+        </li>
+        <li>
+          <NavLink to="/contact">Politica</NavLink>
+        </li>
+        <li>
+          <NavLink to="/about">Sociedad</NavLink>
+        </li>
+        <li>
+          <NavLink to="/services">Tecnologia</NavLink>
+        </li>
+        <li>
+          <NavLink to="/contact">Turismo</NavLink>
         </li>
       </ul>
     </nav>
