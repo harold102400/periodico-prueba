@@ -14,7 +14,7 @@ interface News {
   category: string;
 }
 
-const Economia = () => {
+const Turismo = () => {
   const [categoryNews, setCategoryNews] = useState<News[]>([]);
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const Economia = () => {
       });
   }, []); 
 
-  const filteredNews = categoryNews.find(news => news.category === "Economía");
+  const filteredNews = categoryNews.find(news => news.category === "Turismo");
 console.log(filteredNews)
   return (
     <div className="news-container">
@@ -60,4 +60,4 @@ console.log(filteredNews)
   );
 }
 
-export default Economia;
+export default Turismo;
