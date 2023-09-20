@@ -2,9 +2,8 @@ import useFetchData from "../../hooks/useFetchData";
 import notFound from '../../../assets/notfound.png'
 import '../pagesStyles/stylesforpages.css'
 
-const Internacional = () => {
-  const {categoryNews } = useFetchData("Economía")
-  const filteredNews = categoryNews.find(news => news.category === "Economía");
+const Economia = () => {
+  const {filteredNews } = useFetchData("Economía")
   return (
     <div className="one-news-container">
       {filteredNews ? (
@@ -31,4 +30,4 @@ const Internacional = () => {
   );
 }
 
-export default Internacional;
+export default Economia;
