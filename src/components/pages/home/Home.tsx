@@ -1,40 +1,9 @@
-import axios from "axios";
-import { useState, useEffect } from 'react';
+import fetchLatestPosts from "../../hooks/fetchLatestPosts";
 import './Home.css'
 
-const baseURL = "https://apitest.rdedigital.com/api/v1/latestPost";
-interface News {
-  id: number;
-  title: {
-    rendered: string;
-  };
-  media: string;
-  content: {
-    rendered: string;
-  };
-}
-
 const Home = () => {
-  const [latestNews, setLatestNews] = useState<News[]>([]);
+  const {latestNews } = fetchLatestPosts()
 
-  useEffect(() => {
-    axios.get<News[]>(baseURL)
-      .then((response) => {
-        const newsWithCleanedContent = response.data.map(news => ({
-          ...news,
-          content: {
-            rendered: news.content.rendered
-            .replace(/<[^>]*>/g, "") 
-            .replace(/&nbsp;/g, " "), 
-          },
-        }));
-        setLatestNews(newsWithCleanedContent);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
-console.log(latestNews)
   return (
     <div className="news-container">
       {latestNews.map(news => (

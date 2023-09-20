@@ -1,63 +1,34 @@
-import axios from "axios";
-import React, { useState, useEffect } from 'react';
+import useFetchData from "../../hooks/useFetchData";
+import notFound from '../../../assets/notfound.png'
+import '../pagesStyles/stylesforpages.css'
 
-const baseURL = "https://apitest.rdedigital.com/api/v1/posts";
-interface News {
-  id: number;
-  title: {
-    rendered: string;
-  };
-  media: string;
-  content: {
-    rendered: string;
-  };
-  category: string;
-}
-
-const Economia = () => {
-  const [categoryNews, setCategoryNews] = useState<News[]>([]);
-
-  useEffect(() => {
-    axios.get<News[]>(baseURL)
-      .then((response) => {
-        const newsWithCleanedContent = response.data.map(news => ({
-          ...news,
-          content: {
-            rendered: news.content.rendered
-              .replace(/<[^>]*>/g, "") 
-              .replace(/&nbsp;/g, " "), 
-          },
-        }));
-        setCategoryNews(newsWithCleanedContent);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []); 
-
+const Internacional = () => {
+  const {categoryNews } = useFetchData("Economía")
   const filteredNews = categoryNews.find(news => news.category === "Economía");
-console.log(filteredNews)
   return (
-    <div className="news-container">
+    <div className="one-news-container">
       {filteredNews ? (
-        <div key={filteredNews.id} className="card-container">
+        <div key={filteredNews.id} className="news-card-container">
           {filteredNews.media && (
-            <img src={filteredNews.media} className="ilustration" />
+            <img src={filteredNews.media} className="news-media" />
           )}
-          <div className="news-info-container">
+          <div className="news-sub-container">
             {filteredNews.title && (
-              <h1 className="news-title">{filteredNews.title.rendered}</h1>
+              <h1 className="one-news-title">{filteredNews.title.rendered}</h1>
             )}
             {filteredNews.content && (
-              <p className="news-content">{filteredNews.content.rendered}</p>
+              <p className="one-news-content">{filteredNews.content.rendered}</p>
             )}
           </div>
         </div>
       ) : (
-        <div>No se encontraron noticias</div>
+        <div className='notfound-container'>
+          <img src={notFound} className="notfound-media" />
+          <h1 className='notfound-title'>No se encontraron noticias</h1>
+          </div>
       )}
     </div>
   );
 }
 
-export default Economia;
+export default Internacional;

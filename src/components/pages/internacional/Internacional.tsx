@@ -1,43 +1,10 @@
-import axios from "axios";
-import React, { useState, useEffect } from 'react';
-import './Internacional.css'
-
-const baseURL = "https://apitest.rdedigital.com/api/v1/posts";
-interface News {
-  id: number;
-  title: {
-    rendered: string;
-  };
-  media: string;
-  content: {
-    rendered: string;
-  };
-  category: string;
-}
+import useFetchData from "../../hooks/useFetchData";
+import notFound from '../../../assets/notfound.png'
+import '../pagesStyles/stylesforpages.css'
 
 const Internacional = () => {
-  const [categoryNews, setCategoryNews] = useState<News[]>([]);
-
-  useEffect(() => {
-    axios.get<News[]>(baseURL)
-      .then((response) => {
-        const newsWithCleanedContent = response.data.map(news => ({
-          ...news,
-          content: {
-            rendered: news.content.rendered
-              .replace(/<[^>]*>/g, "") 
-              .replace(/&nbsp;/g, " "), 
-          },
-        }));
-        setCategoryNews(newsWithCleanedContent);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []); 
-
+  const {categoryNews } = useFetchData("Internacional")
   const filteredNews = categoryNews.find(news => news.category === "Internacional");
-console.log(filteredNews)
   return (
     <div className="one-news-container">
       {filteredNews ? (
@@ -55,7 +22,10 @@ console.log(filteredNews)
           </div>
         </div>
       ) : (
-        <div>No se encontraron noticias</div>
+        <div className='notfound-container'>
+          <img src={notFound} className="notfound-media" />
+          <h1 className='notfound-title'>No se encontraron noticias</h1>
+          </div>
       )}
     </div>
   );

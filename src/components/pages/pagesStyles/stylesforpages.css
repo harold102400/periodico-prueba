@@ -42,3 +42,14 @@
   margin-bottom: 1.4rem;
   font-family: 'Mooli', sans-serif;
   }
+.notfound-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 3rem;
+}
+  .notfound-media{
+    height: 340px;
+    width: 340px;
+  }
