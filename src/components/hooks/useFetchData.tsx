@@ -6,6 +6,8 @@ import {News} from '../interfaces/noticias/News'
 function useFetchData(category: string) {
 
     const [categoryNews, setCategoryNews] = useState<News[]>([]);
+    const filteredNews = categoryNews.find(news => news.category === category);
+
 
     useEffect(() => {
         axios.get<News[]>(`https://apitest.rdedigital.com/api/v1/posts/category/${category}`)
@@ -25,7 +27,7 @@ function useFetchData(category: string) {
           });
       }, []); 
 
-      return {categoryNews}
+      return {categoryNews, filteredNews}
 
 }
     

@@ -3,8 +3,8 @@ import notFound from '../../../assets/notfound.png'
 import '../pagesStyles/stylesforpages.css'
 
 const Internacional = () => {
-  const {categoryNews } = useFetchData("Internacional")
-  const filteredNews = categoryNews.find(news => news.category === "Internacional");
+  const {filteredNews } = useFetchData("Internacional")
+
   return (
     <div className="one-news-container">
       {filteredNews ? (
