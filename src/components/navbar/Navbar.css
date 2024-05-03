@@ -4,14 +4,14 @@
 
 nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     background-color: #ffffff;
     color: #000;
     position: sticky;
     top: 0;
-    max-width: 1000px;
-    margin: 0 auto 100px auto;
+/*     max-width: 1000px;
+    margin: 0 auto 100px auto; */
 }
 
 nav .title {
@@ -24,6 +24,7 @@ nav .title {
 
 nav ul {
     display: flex;
+    flex-wrap: nowrap;
 }
 
 nav ul li {
@@ -57,12 +58,12 @@ nav .menu {
 nav .menu span {
     height: 0.4rem;
     width: 100%;
-    background-color: #fff;
+    background-color: #000;
     border-radius: 0.2rem;
 }
 
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     nav .menu {
         display: flex;
     }
@@ -90,5 +91,11 @@ nav .menu span {
 
     nav ul li a {
         margin: 0.2rem 0.5rem;
+    }
+}
+
+@media (max-width: 1140px) {
+    nav ul {
+        flex-wrap: wrap;
     }
 }
