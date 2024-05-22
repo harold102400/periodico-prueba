@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import {News} from '../interfaces/noticias/News'
-import { getNewsData } from "./getNewsData";
+import { getNewsData } from "./newsFetchFn";
 
 
 function useFetchData(category: string) {
 
 
  
-  const API_URL = import.meta.env.VITE_API_URL
+  console.log(API_URL)
 
   ///interface para los estados y se usa para tipar el useState
     interface AppState {

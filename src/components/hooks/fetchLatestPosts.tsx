@@ -1,37 +1,49 @@
-import { useEffect, useState } from "react";
+/* import { useEffect, useState } from "react";
 import {News} from '../interfaces/noticias/News'
-import { getNewsData } from "./getNewsData";
+import { getNewsData } from "./newsFetchFn";
+import { useQuery } from "@tanstack/react-query";
 
 
 
-export function FetchLatestPosts() {
+function FetchLatestPosts() {
 
-    const API_URL = import.meta.env.VITE_API_URL
-    console.log(API_URL)
 
+  const query = useQuery(
+    ['news'],
+    getNewsData,
+  );
+
+  if(query.isLoading){
+    return <div>Loading....</div>
+  } */
+
+  //const API_URL = import.meta.env.VITE_API_URL
+
+
+  
     ///interface para los estados y se usa para tipar el useState
-    interface AppState {
+    /* interface AppState {
       newsState: News[]
     }
-
+ */
     ///hacemos un useState para almacenar los datos que vienen de la API y poder mapearlos
-    const [trendingNews, setTrendingNews] = useState<AppState['newsState']>([]);
+    //const [trendingNews, setTrendingNews] = useState<AppState['newsState']>([]);
 
 
 
     ///hacemos un useEffect y adentro hacemos una funcion asyncrona que llama el hook que hace la conexion a la api y le agregamos la conexion a la api y le ponemos await y la guardamos dentro de una variable 
-    useEffect(() => {
+   /*  useEffect(() => {
         const data = async() => {
           const news = await getNewsData(API_URL);
           setTrendingNews(news)
           //console.log(news)
         }
         data()
-      }, [API_URL]); 
+      }, [API_URL]);  */
 
-      return {trendingNews}
-
+/*       return {}
 }
     
+export default FetchLatestPosts;
 
-   
+    */

@@ -1,9 +1,11 @@
-import useFetchData from "../../hooks/useFetchData";
 import notFound from '../../../assets/notfound.png'
+import { newsByCategory } from "../../hooks/newsPosts";
 import '../pagesStyles/stylesforpages.css'
 
 const Deporte = () => {
-  const {categoryNews } = useFetchData("6")
+  //const {categoryNews } = useFetchData("6")
+  const categoryNews = newsByCategory("6");
+
   console.log(categoryNews);
 
   /* const replaceSpecialCharacters = (text: string) => {
@@ -12,9 +14,9 @@ const Deporte = () => {
 
   return (
     <div className="one-news-container">
-
-    {
-      categoryNews.slice(0,2).map(news => 
+    {categoryNews.isLoading && <div>Cargando...</div>}
+    { categoryNews.data &&
+      categoryNews.data.slice(0,2).map(news => 
         news ? (
           <div key={news.id} className="news-card-container">
               <img src={news.jetpack_featured_media_url} className="news-media" />
