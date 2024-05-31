@@ -23,12 +23,12 @@ function App() {
     <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/internacional" element={<Internacional />} />
-        <Route path="/cultura" element={<Cultura />} />
+        <Route path="/estilo" element={<Cultura />} />
         <Route path="/deporte" element={<Deporte />} />
         <Route path="/economia" element={<Economia />} />
-        <Route path="/gente" element={<Gente />} />
-        <Route path="/politica" element={<Politica />} />
-        <Route path="/sociedad" element={<Sociedad />} />
+        <Route path="/opinion" element={<Gente />} />
+        <Route path="/nacionales" element={<Politica />} />
+        <Route path="/entretenimiento" element={<Sociedad />} />
         <Route path="/tecnologia" element={<Tecnologia />} />
         <Route path="/turismo" element={<Turismo />} />
       </Routes>

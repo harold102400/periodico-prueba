@@ -1,32 +1,39 @@
-import useFetchData from "../../hooks/useFetchData";
+import { newsByCategory } from "../../services/newsPosts";
 import notFound from '../../../assets/notfound.png'
 import '../pagesStyles/stylesforpages.css'
 
 const Internacional = () => {
-  const {filteredNews } = useFetchData("Internacional")
+
+  const categoryNews = newsByCategory("95");
 
   return (
     <div className="one-news-container">
-      {filteredNews ? (
-        <div key={filteredNews.id} className="news-card-container">
-          {filteredNews.media && (
-            <img src={filteredNews.media} className="news-media" />
-          )}
-          <div className="news-sub-container">
-            {filteredNews.title && (
-              <h1 className="one-news-title">{filteredNews.title.rendered}</h1>
-            )}
-            {filteredNews.content && (
-              <p className="one-news-content">{filteredNews.content.rendered}</p>
-            )}
+    {categoryNews.isLoading && <div>Cargando...</div>}
+    { categoryNews.data &&
+      categoryNews.data.slice(0,2).map(news => 
+        news ? (
+          <div key={news.id} className="news-card-container">
+              <img src={news.jetpack_featured_media_url} className="news-media" />
+            <div className="news-sub-container">
+                <h1 className="one-news-title">{news.title.rendered}</h1>
+                <p className="one-news-content" dangerouslySetInnerHTML={{__html: news.excerpt.rendered}}></p>
+            </div>
           </div>
-        </div>
-      ) : (
-        <div className='notfound-container'>
-          <img src={notFound} className="notfound-media" />
-          <h1 className='notfound-title'>No se encontraron noticias</h1>
-          </div>
-      )}
+        ) : (
+            <div className='notfound-container'>
+              <img src={notFound} className="notfound-media" />
+              <h1 className='notfound-title'>No se encontraron noticias</h1>
+            </div>
+        )
+  
+      )
+    }
+
+
+      
+
+
+
     </div>
   );
 }

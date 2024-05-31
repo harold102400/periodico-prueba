@@ -1,12 +1,10 @@
 import notFound from '../../../assets/notfound.png'
-import { newsByCategory } from "../../hooks/newsPosts";
+import { newsByCategory } from "../../services/newsPosts";
 import '../pagesStyles/stylesforpages.css'
 
 const Deporte = () => {
   //const {categoryNews } = useFetchData("6")
   const categoryNews = newsByCategory("6");
-
-  console.log(categoryNews);
 
   /* const replaceSpecialCharacters = (text: string) => {
     return text.replace("&#8217;", ''); // Reemplaza caracteres especiales por una cadena vacía

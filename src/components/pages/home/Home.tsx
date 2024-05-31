@@ -1,4 +1,4 @@
-import { latestNews } from "../../hooks/newsPosts";
+import { latestNews } from "../../services/newsPosts";
 import './Home.css'
 
 const Home = () => {

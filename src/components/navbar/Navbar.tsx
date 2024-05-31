@@ -21,7 +21,7 @@ export const Navbar = () => {
           <NavLink to="/internacional">Internacional</NavLink>
         </li>
         <li>
-          <NavLink to="/cultura">Cultura</NavLink>
+          <NavLink to="/estilo">Cultura</NavLink>
         </li>
         <li>
           <NavLink to="/deporte">Deporte</NavLink>
@@ -30,13 +30,13 @@ export const Navbar = () => {
           <NavLink to="/economia">Economia</NavLink>
         </li>
         <li>
-          <NavLink to="/gente">Gente</NavLink>
+          <NavLink to="/opinion">Gente</NavLink>
         </li>
         <li>
-          <NavLink to="/politica">Politica</NavLink>
+          <NavLink to="/nacionales">Politica</NavLink>
         </li>
         <li>
-          <NavLink to="/sociedad">Sociedad</NavLink>
+          <NavLink to="/entretenimiento">Sociedad</NavLink>
         </li>
         <li>
           <NavLink to="/tecnologia">Tecnologia</NavLink>
