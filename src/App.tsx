@@ -12,6 +12,7 @@ import Sociedad from "./components/pages/sociedad/Sociedad";
 import Tecnologia from "./components/pages/tecnologia/Tecnologia";
 import Turismo from "./components/pages/turismo/Turismo";
 import LogoComponent from "./components/logoComponent/LogoComponent";
+import Footer from "./components/footer/Footer";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route path="/tecnologia" element={<Tecnologia />} />
         <Route path="/turismo" element={<Turismo />} />
       </Routes>
+      <Footer />
     </>
   )
 }
