@@ -1,2 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Mooli&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+#root {
+    position:relative;
+    min-height: 100vh;
+}

@@ -1,3 +1,4 @@
+import "./Footer.css";
 const Footer = () => {
     var currYear = new Date().getFullYear();
   return (
